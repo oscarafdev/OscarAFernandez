@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 namespace OscarAFernandez {
-    public class Button : IEquatable<Button>
+    public class Character : IEquatable<Character> // Lista de carácteres
     {
        
         public string Letter { get; set; }
@@ -10,7 +10,7 @@ namespace OscarAFernandez {
         public string Number { get; set; }
         public int Repetitions { get; set; }
         
-        public bool Equals(Button other)
+        public bool Equals(Character other)
         {
             if (other == null) return false;
             return (this.Number.Equals(other.Number));
@@ -28,14 +28,17 @@ namespace OscarAFernandez {
 
     }
     public class Control {
-        List<Button> letters = new List<Button>();
+        List<Character> letters = new List<Character>();
+
         int number = 2;
+
         int repeticion = 1;
-        public void Start() {
+
+        public void Start() { // Iniciamos la lista
             string letterlist = "abcdefghijklmnopqrstuvwxyz ";
             
             for(int i = 0; i < letterlist.Length; i++) {
-                letters.Add(new Button { Letter = letterlist[i].ToString(), Number = number.ToString(), Repetitions = repeticion  });
+                letters.Add(new Character { Letter = letterlist[i].ToString(), Number = number.ToString(), Repetitions = repeticion  });
                 if(repeticion == 3 || repeticion == 4) {
                     if(number == 7 && repeticion == 3 || number == 9 && repeticion == 3){
                         repeticion++;
@@ -46,30 +49,44 @@ namespace OscarAFernandez {
                 }
             }
         }
-        public void findString(string text) {
+
+        void NextNumber() {  // Siguiente numero y restart del repetidor
+            number++; repeticion = 1; 
+            if(number == 10) { number = 0; }
+        }
+
+        public void findString(string text) { // Buscamos las letras en la lista y obtenemos el resultado
             string result = "";
             string lastnumber = "";
             for(int i = 0; i < text.Length; i++) {
-                Button button = letters.Find(
-                    delegate(Button btn)
+                Character character = letters.Find(
+                    delegate(Character chr)
                     {
-                        return btn.Letter == text[i].ToString().ToLower();
+                        return chr.Letter == text[i].ToString().ToLower();
                     }
                 );
-                string numbers = button.getNumbers();
-                if(lastnumber == button.Number) {
+                string numbers = character.getNumbers();
+                if(lastnumber == character.Number) {
                     result = result+" "+numbers;
                 }
                 else {
                     result = result+numbers;
                 }
-                lastnumber = button.Number;
+                lastnumber = character.Number;
             }
-            Console.WriteLine("Presiona las teclas: "+result);
+            Console.WriteLine("Resultado: "+result);
         }
-        void NextNumber() { 
-            number++; repeticion = 1; 
-            if(number == 10) { number = 0; }
+        
+        public bool IsLetter(string text) // Verifica si una cadena de texto contiene carácteres válidos (true = correcto, false = error)
+        {
+            bool success = true;
+            for(int i = 0; i < text.Length; i++) {
+                char c = text[i];
+                if(!(c>='A' && c<='Z') && !(c>='a' && c<='z') && !(c == ' ')) {
+                    success = false;
+                }
+            }
+            return success;
         }
     }
 }

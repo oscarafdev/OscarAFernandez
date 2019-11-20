@@ -4,26 +4,27 @@ namespace OscarAFernandez
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
+            Control control = new Control();
+            control.Start(); // Iniciamos la lista de carácteres disponibles
+
             Console.ForegroundColor = ConsoleColor.Blue;
-            Control prueba = new Control();
-            
-            prueba.Start();
             Console.WriteLine("Ejercicio C# Sofrecom - Oscar Fernández");
             Console.ResetColor();
             Console.WriteLine("Ingresa el comando /help para más ayuda");
-            Console.WriteLine("Presiona ESC para salir..");
             while (true) // Bucle infinito
             {
                 Console.WriteLine("Escribe algo:");
-                if(Console.ReadKey(true).Key == ConsoleKey.Escape) // Si presiona Escape termina el bucle
+                String input = Console.ReadLine();
+                if(input.ToLower() == "/exit") // Comando de salida
                 {
                     Console.WriteLine("¡Hasta pronto! Presiona una tecla para salir");
                     break;
                 }
-                String input = Console.ReadLine();
-                if(input.ToLower() == "/help" || input == "") {
+                
+                if(input.ToLower() == "/help" || input == "") { // Comando de ayuda
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("Ejercicio C# Sofrecom - Oscar Alejandro Fernandez");
                     Console.ResetColor();
@@ -32,12 +33,19 @@ namespace OscarAFernandez
                     Console.WriteLine("-- Comandos disponibles: ");
                     Console.ResetColor();
                     Console.WriteLine("/help - Muestra este menú de ayuda.");
-                    Console.WriteLine("Presiona ESC para salir");
+                    Console.WriteLine("/exit - Salir de la aplicación.");
                     Console.WriteLine("Software desarrollado por Oscar Fernandez");
                     Console.WriteLine("");
                 }
                 else {
-                    prueba.findString(input);
+                    if(control.IsLetter(input)) { // Verifica si es un caracter válido
+                        control.findString(input);
+                    }
+                    else { 
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("ERROR: Ingresa caracteres válidos (Aa-Zz)."); 
+                        Console.ResetColor();
+                    }
                 }
             }
         }
