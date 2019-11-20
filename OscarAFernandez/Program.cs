@@ -39,7 +39,8 @@ namespace OscarAFernandez
                 }
                 else {
                     if(control.IsLetter(input)) { // Verifica si es un caracter válido
-                        control.findString(input);
+                        string result = control.findString(input);
+                        Console.WriteLine("Resultado: "+result);
                     }
                     else { 
                         Console.ForegroundColor = ConsoleColor.Red;

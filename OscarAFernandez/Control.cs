@@ -55,7 +55,7 @@ namespace OscarAFernandez {
             if(number == 10) { number = 0; }
         }
 
-        public void findString(string text) { // Buscamos las letras en la lista y obtenemos el resultado
+        public string findString(string text) { // Buscamos las letras en la lista y obtenemos el resultado
             string result = "";
             string lastnumber = "";
             for(int i = 0; i < text.Length; i++) {
@@ -74,7 +74,8 @@ namespace OscarAFernandez {
                 }
                 lastnumber = character.Number;
             }
-            Console.WriteLine("Resultado: "+result);
+            
+            return result;
         }
         
         public bool IsLetter(string text) // Verifica si una cadena de texto contiene carácteres válidos (true = correcto, false = error)

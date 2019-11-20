@@ -12,17 +12,17 @@ namespace Tests
             string query = "Foo Bar";
             string result = "333666 666022 2777";
             control.Start();
-            control.findString(query);
-            //Assert.AreEqual(result, realresult);
+            string realresult = control.findString(query);
+            Assert.AreEqual(result, realresult);
         }
         [TestCase]
         public void Hola()
         {
             string query = "Hola";
-            string result = "333666 666022 2777";
+            string result = "446665552";
             control.Start();
-            control.findString(query);
-            //Assert.AreEqual(result, realresult);
+            string realresult = control.findString(query);
+            Assert.AreEqual(result, realresult);
         }
     }
 }
