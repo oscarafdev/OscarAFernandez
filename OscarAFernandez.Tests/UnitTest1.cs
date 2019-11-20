@@ -9,14 +9,20 @@ namespace Tests
         [TestCase]
         public void FooBar()
         {
+            string query = "Foo Bar";
+            string result = "333666 666022 2777";
             control.Start();
-            control.findString("Foo Bar");
+            control.findString(query);
+            //Assert.AreEqual(result, realresult);
         }
         [TestCase]
         public void Hola()
         {
+            string query = "Hola";
+            string result = "333666 666022 2777";
             control.Start();
-            control.findString("Hola");
+            control.findString(query);
+            //Assert.AreEqual(result, realresult);
         }
     }
 }
