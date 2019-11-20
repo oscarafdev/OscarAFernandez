@@ -7,14 +7,17 @@ namespace OscarAFernandez
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Blue;
+            Control prueba = new Control();
+            
+            prueba.Start();
             Console.WriteLine("Ejercicio C# Sofrecom - Oscar Fernández");
             Console.ResetColor();
             Console.WriteLine("Ingresa el comando /help para más ayuda");
             Console.WriteLine("Presiona ESC para salir..");
-            while (true)
+            while (true) // Bucle infinito
             {
                 Console.WriteLine("Escribe algo:");
-                if(Console.ReadKey(true).Key == ConsoleKey.Escape) 
+                if(Console.ReadKey(true).Key == ConsoleKey.Escape) // Si presiona Escape termina el bucle
                 {
                     Console.WriteLine("¡Hasta pronto! Presiona una tecla para salir");
                     break;
@@ -34,7 +37,7 @@ namespace OscarAFernandez
                     Console.WriteLine("");
                 }
                 else {
-                    Console.WriteLine("Escribiste: " + input);
+                    prueba.findString(input);
                 }
             }
         }
