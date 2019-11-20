@@ -5281,11 +5281,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Proyectos\\OscarAFernandez\\Tests\\OscarAFernandez.Tests.csproj",
+      "projectUniqueName": "C:\\Proyectos\\OscarAFernandez\\OscarAFernandez.Tests\\OscarAFernandez.Tests.csproj",
       "projectName": "OscarAFernandez.Tests",
-      "projectPath": "C:\\Proyectos\\OscarAFernandez\\Tests\\OscarAFernandez.Tests.csproj",
+      "projectPath": "C:\\Proyectos\\OscarAFernandez\\OscarAFernandez.Tests\\OscarAFernandez.Tests.csproj",
       "packagesPath": "C:\\Users\\Trabajo\\.nuget\\packages\\",
-      "outputPath": "C:\\Proyectos\\OscarAFernandez\\Tests\\obj\\",
+      "outputPath": "C:\\Proyectos\\OscarAFernandez\\OscarAFernandez.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Trabajo\\AppData\\Roaming\\NuGet\\NuGet.Config"
