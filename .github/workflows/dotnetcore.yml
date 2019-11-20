@@ -16,6 +16,6 @@ jobs:
     - name: Restore
       run: dotnet restore
     - name: Run
-      run: dotnet run --project ./OscarAFernandez/OscarAFernandez.csproj
+      run: dotnet build ./OscarAFernandez/OscarAFernandez.csproj
     - name: Execute tests
       run: dotnet test
